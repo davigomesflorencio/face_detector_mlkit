@@ -28,7 +28,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.davi.dev.face_detector_mlkit"
+        applicationId = "com.davi.dev.face_detect_scan"
         minSdk = 25
         targetSdk = 35
         versionCode = 5
