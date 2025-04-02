@@ -2,7 +2,7 @@ name: Flutter Build & Release APK
 
 on:
   push:
-    branches: [ "master" ]s
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
