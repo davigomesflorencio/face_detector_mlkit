@@ -30,7 +30,7 @@ android {
     defaultConfig {
         applicationId = "com.davi.dev.face_detector_mlkit"
         minSdk = 25
-        targetSdk = 35s
+        targetSdk = 35
         versionCode = 5
         versionName = "4.0.0"
     }
