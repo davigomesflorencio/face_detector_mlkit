@@ -43,6 +43,10 @@ jobs:
     name: Release APK
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      checks: write
 
     steps:
       - name: Download Artifact
