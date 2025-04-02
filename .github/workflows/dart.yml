@@ -1,0 +1,61 @@
+name: Flutter Build & Release APK
+
+on:
+  push:
+    branches: [ "master" ]s
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.2'  # Use latest Flutter version
+          cache: true
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      # Get flutter dependencies.
+      - run: flutter pub get
+
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/keystore_mlkit.jks
+    
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+  
+  release:
+    name: Release APK
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-apk
+          path: build/
+  
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/app-release.apk
+          tag_name: v3.0.0.${{ github.run_number }}
+          release_name: "Release v3.0.${{ github.run_number }}"
+          draft: false
+          prerelease: false
