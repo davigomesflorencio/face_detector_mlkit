@@ -1,0 +1,4 @@
+enum FaceMeshDetectorOptions {
+  boundingBoxOnly,
+  faceMesh,
+}
