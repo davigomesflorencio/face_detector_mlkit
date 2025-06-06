@@ -12,16 +12,9 @@ double translateX(
 ) {
   switch (rotation) {
     case InputImageRotation.rotation90deg:
-      return x *
-          size.width /
-          (Platform.isIOS ? absoluteImageSize.width : absoluteImageSize.height);
+      return x * size.width / (Platform.isIOS ? absoluteImageSize.width : absoluteImageSize.height);
     case InputImageRotation.rotation270deg:
-      return size.width -
-          x *
-              size.width /
-              (Platform.isIOS
-                  ? absoluteImageSize.width
-                  : absoluteImageSize.height);
+      return size.width - x * size.width / (Platform.isIOS ? absoluteImageSize.width : absoluteImageSize.height);
     default:
       return x * size.width / absoluteImageSize.width;
   }
@@ -36,9 +29,7 @@ double translateY(
   switch (rotation) {
     case InputImageRotation.rotation90deg:
     case InputImageRotation.rotation270deg:
-      return y *
-          size.height /
-          (Platform.isIOS ? absoluteImageSize.height : absoluteImageSize.width);
+      return y * size.height / (Platform.isIOS ? absoluteImageSize.height : absoluteImageSize.width);
     default:
       return y * size.height / absoluteImageSize.height;
   }
@@ -53,14 +44,9 @@ double translateV2X(
 ) {
   switch (rotation) {
     case InputImageRotation.rotation90deg:
-      return x *
-          canvasSize.width /
-          (Platform.isIOS ? imageSize.width : imageSize.height);
+      return x * canvasSize.width / (Platform.isIOS ? imageSize.width : imageSize.height);
     case InputImageRotation.rotation270deg:
-      return canvasSize.width -
-          x *
-              canvasSize.width /
-              (Platform.isIOS ? imageSize.width : imageSize.height);
+      return canvasSize.width - x * canvasSize.width / (Platform.isIOS ? imageSize.width : imageSize.height);
     case InputImageRotation.rotation0deg:
     case InputImageRotation.rotation180deg:
       switch (cameraLensDirection) {
@@ -82,9 +68,7 @@ double translateV2Y(
   switch (rotation) {
     case InputImageRotation.rotation90deg:
     case InputImageRotation.rotation270deg:
-      return y *
-          canvasSize.height /
-          (Platform.isIOS ? imageSize.height : imageSize.width);
+      return y * canvasSize.height / (Platform.isIOS ? imageSize.height : imageSize.width);
     case InputImageRotation.rotation0deg:
     case InputImageRotation.rotation180deg:
       return y * canvasSize.height / imageSize.height;

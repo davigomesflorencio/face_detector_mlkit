@@ -24,14 +24,14 @@ class FaceDetectorPainter extends CustomPainter {
     final Paint paint1 = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0
-      ..color = Color.fromARGB(100, 3, 169, 244);
+      ..color = Color.fromARGB(100, 53, 141, 150);
     final Paint paint2 = Paint()
       ..style = PaintingStyle.fill
       ..strokeWidth = 2.0
       ..color = Colors.green;
 
     final paintFace = Paint()
-      ..color = Colors.blue
+      ..color = Color.fromARGB(100, 53, 141, 250)
       ..strokeWidth = 3
       ..style = PaintingStyle.stroke;
 
@@ -99,31 +99,31 @@ class FaceDetectorPainter extends CustomPainter {
           final path = Path();
           path.moveTo(
             translateV2X(
-              contour!.points.first.x.toDouble(),
+              contour.points.first.x.toDouble(),
               size,
               imageSize,
               rotation,
               cameraLensDirection,
             ),
             translateV2Y(
-              contour!.points.first.y.toDouble(),
+              contour.points.first.y.toDouble(),
               size,
               imageSize,
               rotation,
               cameraLensDirection,
             ),
           );
-          for (int i = 1; i < contour!.points.length; i++) {
+          for (int i = 1; i < contour.points.length; i++) {
             path.lineTo(
               translateV2X(
-                contour!.points[i].x.toDouble(),
+                contour.points[i].x.toDouble(),
                 size,
                 imageSize,
                 rotation,
                 cameraLensDirection,
               ),
               translateV2Y(
-                contour!.points[i].y.toDouble(),
+                contour.points[i].y.toDouble(),
                 size,
                 imageSize,
                 rotation,
@@ -133,17 +133,17 @@ class FaceDetectorPainter extends CustomPainter {
           }
 
           // Conecta o último ao primeiro para fechar a forma
-          if (contour!.points.length > 2) {
+          if (contour.points.length > 2) {
             path.lineTo(
               translateV2X(
-                contour!.points.first.x.toDouble(),
+                contour.points.first.x.toDouble(),
                 size,
                 imageSize,
                 rotation,
                 cameraLensDirection,
               ),
               translateV2Y(
-                contour!.points.first.y.toDouble(),
+                contour.points.first.y.toDouble(),
                 size,
                 imageSize,
                 rotation,
