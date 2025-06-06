@@ -1,12 +1,10 @@
 name: face_detector_mlkit
-description: "App desenvolvido em flutter para reconhecimentos de faces"
+description: "Detector Face - DF MLKIT - App desenvolvido em flutter para reconhecimentos de faces"
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
-version: 5.0.0+1
+version: 6.0.0+1
 
 environment:
-   sdk: ">=2.15.0 <4.0.0"
+  sdk: ">=2.15.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -23,6 +21,8 @@ dependencies:
   path: ^1.9.1
   flutter_pdfview: ^1.4.0
   google_mlkit_commons: ^0.11.0
+  url_launcher: ^6.3.1
+  store_redirect: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -36,8 +36,10 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  min_sdk_android: 21
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icon/
 
