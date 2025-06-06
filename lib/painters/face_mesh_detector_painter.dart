@@ -1,10 +1,11 @@
 import 'dart:ui';
 
 import 'package:camera/camera.dart';
-import 'package:face_detector_mlkit/painters/Face.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 
+import '../data/faceMesh/FaceMesh.dart';
+import '../data/faceMesh/FaceMeshTriangle.dart';
 import 'coordinates_translator.dart';
 
 class FaceMeshDetectorPainter extends CustomPainter {
@@ -25,11 +26,16 @@ class FaceMeshDetectorPainter extends CustomPainter {
     final Paint paint1 = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0
-      ..color = Colors.red;
+      ..color = Color.fromARGB(100, 53, 141, 150);
     final Paint paint2 = Paint()
       ..style = PaintingStyle.fill
-      ..strokeWidth = 1.0
-      ..color = Colors.white;
+      ..strokeWidth = 2.0
+      ..color = Colors.green;
+
+    final paintFace = Paint()
+      ..color = Color.fromARGB(100, 53, 141, 250)
+      ..strokeWidth = 3
+      ..style = PaintingStyle.stroke;
 
     for (final FaceMesh mesh in meshes) {
       final left = translateV2X(
@@ -88,7 +94,7 @@ class FaceMeshDetectorPainter extends CustomPainter {
         }
         // Add the first point to close the polygon
         cornerPoints.add(cornerPoints.first);
-        canvas.drawPoints(PointMode.polygon, cornerPoints, paint2);
+        canvas.drawPoints(PointMode.polygon, cornerPoints, paintFace);
       }
 
       for (final triangle in mesh.triangles) {
