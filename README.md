@@ -1,5 +1,9 @@
 # App de Detecção de Face usando o ML Kit do Google
 
+<div>
+<img src="assets/Post 1.png" alt="Detecção facial em foto" style="width:1024px;"/>
+</div>
+
 ## Novidades - Versão 6.0.0
 
 - Novo design com foco em experiência do usuário
