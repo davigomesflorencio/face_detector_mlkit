@@ -7,12 +7,7 @@ import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:image_picker/image_picker.dart';
 
 class GalleryView extends StatefulWidget {
-  const GalleryView(
-      {Key? key,
-      required this.title,
-      this.text,
-      required this.onImage,
-      required this.onDetectorViewModeChanged})
+  const GalleryView({Key? key, required this.title, this.text, required this.onImage, required this.onDetectorViewModeChanged})
       : super(key: key);
 
   final String title;
@@ -110,8 +105,7 @@ class _GalleryViewState extends State<GalleryView> {
       if (_image != null)
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Text(
-              '${_path == null ? '' : 'Image path: $_path'}\n\n${widget.text ?? ''}'),
+          child: Text('${_path == null ? '' : 'Image path: $_path'}\n\n${widget.text ?? ''}'),
         ),
     ]);
   }
